@@ -26,6 +26,7 @@ function Active()
           
         }else{
             header.classList.remove("active");
+            bulb.src="pic/bulb.png"; 
           
         }
     })

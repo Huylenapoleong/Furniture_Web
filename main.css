@@ -19,7 +19,7 @@ header{
     align-items: center;
     display: flex;
     justify-content: space-between;
-    z-index: 1;
+    z-index: 11;
 }
 header .logo img{
     width: 30px;
@@ -54,6 +54,10 @@ header .bars{
 header .bars img{
     width: 25px;
 }
+header.active .navigation{
+    background-color: rgba(255, 255, 255, 0.912);
+    
+}
 header.active {
     background-color: white;
     box-shadow: 1px 0px 0px  white;
@@ -71,30 +75,7 @@ header.active .logo a{
     color: black;
 }
 
-@media(max-width:911px) {
-    header .navigation{
-        position: absolute;
-        top:73px;
-        right:-50%;
-        width: 50%;
-        height:100vh;;
-        background-color:rgba(23, 22, 22, 0.921);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        transition: .5s ease-in-out;
-    }
-    header .navigation li{
-        margin:15px 0;
-    }
-    header .bars {
-        display: block;
-        cursor: pointer;
-    }
 
-    
-}
 .big-bg {
     background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)) ,url(pic/interior-design-with-photoframes-couch.jpg);
     width: 100%;
@@ -104,8 +85,168 @@ header.active .logo a{
     background-repeat: no-repeat;
     position: relative;
     display: flex;
-    text-align: center;
     align-items: center;
     justify-content:center ;
+  
+}
+.big-bg .bg-content{
+    color: rgba(255, 255, 255, 0.751);
+    text-align: center;
+}
+.big-bg .bg-content h1{
+    font-weight: 400;
+    font-size: 50px;
+}
+    
+.big-bg .bg-link a{
+    display: inline-block;
+    text-decoration: none;
     color: white;
+    width: 150px;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+.bg-link a::before{
+    content:" ";
+    position:absolute;
+    top:0;
+    left:-100%;
+    background-color: rgb(22, 19, 19);
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    transition: .4s ease-in-out;
+    z-index: -1;
+}
+.bg-link a:hover::before{
+    left: 0%;
+}
+
+
+.big-collect{
+    width:90%;
+    margin: 100px auto;
+}
+
+.big-collect .collect-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    grid-row-gap:12px;
+    overflow: hidden;
+}
+.big-collect .collect-flex .collect{
+    margin:0px 10px;
+    text-align: center;
+}
+.big-collect .collect-flex .link{
+    margin-top:20px;
+}
+.collect-flex .link a{
+    text-decoration: none;
+    color: black;
+    position:relative;
+    text-transform: capitalize;
+    display: inline-block;
+    
+}
+.collect-flex .link a::before{
+   content: "";
+   position: absolute;
+   background: rgb(14, 3, 3);
+   top:23px;
+   left:0;
+   width: 100%;
+   height:1px;
+   transform: scale(0);
+   transition: .5s ease-in-out;
+}
+.collect-flex .collect:hover .link a::before
+{
+    transform: scale(2) ;
+}
+.collect-flex .collect .img{
+    position:relative;
+    overflow: hidden;
+  
+}
+.collect-flex .collect .img::before{
+    content: "";
+    top:0;
+    left:0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    border: 1px solid transparent;
+}
+.collect-flex .collect:hover .img::before{
+    animation: animation1 .5s linear forwards;
+
+}
+.collect-flex .collect:hover img
+{
+   transform: scale(1.1,1.1);
+   transition: .3s ease-in-out;
+   
+}
+@keyframes animation1 {
+    0%{
+        width: 0;
+        height: 0;
+        border-right-color: transparent;
+        border-top-color:transparent;
+        border-left-color: transparent;
+        border-bottom-color:transparent;
+        
+    }
+    50%{
+        width: 100%;
+        height: 0;
+        border-right-color: black;
+        border-top-color:transparent;
+        border-left-color: transparent;
+        border-bottom-color:transparent;
+    }
+    100%{
+        width: 100%;
+        height: 100%;
+        border-right-color: black;
+        border-top-color:black;
+        border-left-color: transparent;
+        border-bottom-color:transparent;
+    }
+}
+
+@media(max-width:911px) {
+    header .navigation{
+        position: absolute;
+        top:73px;
+        right:-50%;
+        width: 50%;
+        height:100vh;;
+        background-color:rgb(23, 22, 22);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        transition: .5s ease-in-out;
+        border: 1px solid black;
+    }
+    header .navigation li{
+        margin:15px 0;
+    }
+    header .bars {
+        display: block;
+        cursor: pointer;
+    }
+    .big-bg .bg-content h1{
+        font-weight: 300;
+        font-size: 30px;
+    }
+
 }
